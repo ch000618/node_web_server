@@ -75,6 +75,7 @@ var cls_webRequst =function(req, res){
   var exec = function(sFileName){
     var sCMD='node '+sFileName +' --url '+req.url;
     process.exec( sCMD ,fexec);
+		console.log(sCMD);	
   }
   //抓取檔案內容-純內容
   /*
