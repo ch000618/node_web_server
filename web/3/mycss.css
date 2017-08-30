@@ -1,0 +1,34 @@
+@charset "utf-8";
+.aa {
+	font-size:36px;
+	text-align:center;
+	margin:0 auto;
+
+}
+.aa2 {
+	font-size:36px;
+	text-align:right;
+	margin:0 auto;
+
+}
+td{
+	width:100px;
+	text-align:center;
+}
+.a01 {
+	color:#ff0000;
+	text-align:center;
+	margin:0 auto;
+}
+h1 {
+	color:#0000FF;
+	font-size:40px;
+	text-align:center;
+}
+div{
+	width:30%;
+	text-align:center;
+	border-style:double;
+	margin:20% auto;
+	background:#DDDDDD;
+}
