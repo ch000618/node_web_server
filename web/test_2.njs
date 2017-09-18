@@ -1,13 +1,10 @@
 //測試 另外執行 nodeJS 程式
-//const url = require('url'); // url
 const query = require("querystring"); // GET 與 POST
 const minimist = require('minimist');
 const request = require("request");
 const fs = require("fs");
 const cheerio = require("cheerio");
 const iconv = require("iconv-lite");
-//var argv=minimist(process.argv.slice(2));
-//_URL=url.parse((argv.url), true);
 init_request_gamer();
 function init_request_gamer(){
 	console.log('<head><meta charset="utf-8"/></head>');

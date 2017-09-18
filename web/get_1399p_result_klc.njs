@@ -9,7 +9,8 @@ const request = require("request");
 init();
 function init(){
 	var timestamp = new Date().getTime();
-	var _regUrl='https://www.1399p.com/gdkl10/KaiJiang?date=2017-09-06&_='+timestamp;
+	var today = Date();
+	var _regUrl='https://www.1399p.com/gdkl10/KaiJiang?date='+today+'&_='+timestamp;
 	var Referer='https://www.1399p.com/gdkl10/KaiJiang';
 	var Host='https://www.1399p.com/';
 	var options = url.parse(_regUrl);
@@ -33,11 +34,17 @@ function init(){
 		}
 		var get_aResult=function(){
 			oTitles = $("tr");
-			var reg=/\r\n|\n|[^u3400-u9FFF]|U+00A0/g;
+			var reg=/\r\n|\n/g;
+			var ch_reg=/[\u4E00-\u9FA5]+/g;
+			var nbsp=/&nbsp;&nbsp;/ig;
+			var s=/\s+/ig;
 			for(var i=1;i<oTitles.length;i++) {
 				str = $(oTitles[i]).text();
-				str = str.replace(/&nbsp;/ig," ");
-				text = str.replace(reg," ");
+				str = str.replace(ch_reg,"");
+				str = str.replace(nbsp,",");
+				text = str.replace(reg,"");
+				text =text.trim();
+				text =text.replace(s,',');
 				aResult.push(text);
 			}
 		}
@@ -45,7 +52,8 @@ function init(){
 			if(error || !body) { return ; }
 			html_parse()
 			get_aResult();
-			console.log(aResult);
+			var JSON_result=JSON.stringify(aResult);
+			console.log(JSON_result);
 		}
 		exec();
 	}
